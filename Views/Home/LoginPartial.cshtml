@@ -1,0 +1,14 @@
+@model test.Models.UserLogin
+
+<form asp-controller="Home" asp-action="Login" method="post">
+        <div class="form-group">  
+            <span asp-validation-for="LoginEmail"></span>
+            <input asp-for="LoginEmail" class="form-control" placeholder="Email"/>
+        </div>
+        <div class="form-group">
+            <span asp-validation-for="LoginPassword"></span>
+            <input asp-for="LoginPassword" class="form-control" placeholder="Password"/>
+        </div>
+
+        <button type="submit" class="btn btn-default">Login</button>
+</form>

@@ -1,0 +1,47 @@
+@using test.Models
+@model ProfileWrapper
+<div class="row">
+    <h3>Your Profile</h3>
+    <div class="col-sm-12">
+        <form asp-controller="Some" asp-action="UpdateProfile" method="post">
+            <div class="form-group">
+                <textarea class="form-control" name="desc">@Model.user.desc</textarea>
+            </div>
+            <button class="btn btn-default">Update</button>
+        </form>
+    </div>
+    <h3>Your Network</h3>
+    <div class="col-sm-12">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            @foreach(var user in Model.friends)
+            {
+                <tr>
+                    <td><a href="/users/@user.friend.userid">@user.friend.firstname @user.friend.lastname</a></td>
+                    <td><a href="/remove/@user.friend.userid">Remove</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <h3>Your Invites</h3>
+    <div class="col-sm-12">
+        <table class="table">
+            <tr>
+                <th>From</th>
+                <th>Action</th>
+            </tr>
+       
+        @foreach(var invite in Model.invites)
+        {
+            <tr>
+                <td><a href="/users/@invite.sender.userid">@invite.sender.firstname @invite.sender.lastname</a></td>
+                <td><a href="/accept/@invite.sender.userid">Accept</a> - <a href="/ignore/@invite.sender.userid">Ignore</a></td>
+            </tr>
+        }   
+         </table>
+    </div>
+</div>
+

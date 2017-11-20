@@ -1,0 +1,36 @@
+@using test.Models
+@model test.Models.UserRegister
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row">
+<div class="col-sm-6">
+<form asp-controller="Home" asp-action="Register" method="post">
+    <div class="form-group">
+        <span asp-validation-for="firstname"></span>
+        <input asp-for="firstname" class="form-control" placeholder="First Name"/>
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="lastname"></span>
+        <input asp-for="lastname" class="form-control" placeholder="Last Name"/>
+    </div>
+    <div class="form-group">  
+        <span asp-validation-for="email"></span>
+        <input asp-for="email" class="form-control" placeholder="Email"/>
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="password"></span>
+        <input asp-for="password" class="form-control" placeholder="Password"/>
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="confirm"></span>
+        <input asp-for="confirm" class="form-control" placeholder="Confirm Password"/>
+    </div>
+    <button type="submit" class="btn btn-default">Register</button>
+</form>   
+</div>
+<div class="col-sm-6">
+    @Html.Partial("LoginPartial")
+</div>
+</div>

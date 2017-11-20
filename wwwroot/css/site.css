@@ -1,0 +1,6 @@
+/*Write all of your CSS here*/
+.field-validation-error{
+    color:red;
+    padding-left: 5px;
+    font-size: 12px;
+}

@@ -1,0 +1,24 @@
+@using test.Models
+@model UserWrapper
+<div class="row">
+    <h3>Users you may connect with</h3>
+    <div class="col-sm-12">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+        
+            @foreach(var user in Model.users)
+            {    
+                <tr>
+                    <td><a href="/users/@user.userid">@user.firstname @user.lastname</a></td>
+                    <td><a href="/connect/@user.userid">connect</a></td>
+                </tr>
+            }
+        </tr>
+    </table>
+
+    </div>
+</div>
+
